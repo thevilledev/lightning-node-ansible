@@ -7,7 +7,7 @@ https://medium.com/@dougvk/run-your-own-mainnet-lightning-node-2d2eab628a8b
 Each node runs the official Bitcoin Core binaries as described in the blog post, except I have
 built the container by using multi-stage builds. This minimizes the amount of data Docker has to
 pull upon container startup. This is about 30 MB. Container configuration can be found from
-vtorhonen/lightning-node and from Dockerhub: https://hub.docker.com/r/vtorhonen/lightning-node/
+[vtorhonen/lightning-node](https://github.com/vtorhonen/lightning-node) and from [my Dockerhub](https://hub.docker.com/r/vtorhonen/lightning-node/).
 
 # Prequisites
 
