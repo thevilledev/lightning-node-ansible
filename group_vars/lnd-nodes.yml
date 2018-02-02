@@ -1,0 +1,17 @@
+# Docker version installed on target host
+docker_version: "17.12.0~ce-0~debian"
+
+# Docker image name for running Bitcoin Core
+# See: https://github.com/vtorhonen/lightning-node
+docker_image_bitcoind: "vtorhonen/lightning-node:latest"
+
+# Docker image for running c-lightning node
+# See: https://medium.com/@dougvk/run-your-own-mainnet-lightning-node-2d2eab628a8b
+docker_image_lnd: "cdecker/lightningd:master"
+
+# Data directory used by both containers as follows:
+# - bitcoind: '/data/bitcoind'
+# - c-lightning: '/data/c-lightning'
+# Directory will be created if it doesn't exist.
+# Make sure you have mounted '/data' before running this playbook.
+data_dir: "/data"

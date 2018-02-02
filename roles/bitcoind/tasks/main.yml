@@ -1,0 +1,13 @@
+---
+- name: create data directory for bitcoind
+  file: path={{ data_dir }}/bitcoind state=directory
+
+- name: run bitcoind container
+  docker_container:
+    name: bitcoind
+    image: "{{ docker_image_bitcoind }}"
+    volumes:
+    - "{{ data_dir }}/bitcoind:/data"
+    ports:
+      - "8333:8333"
+      - "9735:9735"

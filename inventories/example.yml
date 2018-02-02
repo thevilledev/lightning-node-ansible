@@ -1,0 +1,7 @@
+lnd-nodes:
+  hosts:
+    super-awesome-hostname.example.tld:
+      ansible_user: debian
+    even-more-awesome-hostname.example.tld:
+      ansible_user: foo
+        
