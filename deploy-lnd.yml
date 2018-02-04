@@ -1,0 +1,6 @@
+---
+- hosts: lnd-nodes
+  become: yes
+  become_method: sudo
+  roles:
+  - role: lightningd

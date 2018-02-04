@@ -5,6 +5,10 @@ docker_version: "17.12.0~ce-0~debian"
 # See: https://github.com/vtorhonen/lightning-node
 docker_image_bitcoind: "vtorhonen/lightning-node:latest"
 
+# Docker image for running Lightning Network
+# See: https://hub.docker.com/r/cdecker/lightningd/
+docker_image_lightningd: "cdecker/lightningd:master"
+
 # Docker image for running c-lightning node
 # See: https://medium.com/@dougvk/run-your-own-mainnet-lightning-node-2d2eab628a8b
 docker_image_lnd: "cdecker/lightningd:master"
@@ -15,3 +19,7 @@ docker_image_lnd: "cdecker/lightningd:master"
 # Directory will be created if it doesn't exist.
 # Make sure you have mounted '/data' before running this playbook.
 data_dir: "/data"
+
+# Lightning color + alias settings
+lightning_rgb: "666666"
+lightning_alias: "big-blockers-rip"

@@ -1,0 +1,22 @@
+---
+- name: create data directory for lightningd
+  file: path={{ data_dir }}/lightningd state=directory
+
+- name: run lightningd container
+  docker_container:
+    name: lightningd
+    image: "{{ docker_image_lightningd }}"
+    entrypoint: /usr/bin/lightningd
+    command: --network=bitcoin --log-level=debug
+    volumes:
+    - "{{ data_dir }}/bitcoind:/root/.bitcoin"
+    - "{{ data_dir }}/lightningd:/root/.lightning"
+    network_mode: container:bitcoind
+
+- name: create wrapper script for lightning-cli
+  copy:
+    content: |
+      #!/bin/bash
+      docker exec -i lightningd lightning-cli "$@"
+    dest: /usr/local/bin/lightning-cli
+    mode: 0700

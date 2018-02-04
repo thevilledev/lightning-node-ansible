@@ -11,3 +11,11 @@
     ports:
       - "8333:8333"
       - "9735:9735"
+
+- name: create wrapper script for bitcoin-cli
+  copy:
+    content: |
+      #!/bin/bash
+      docker exec -i bitcoind gosu bitcoin bitcoin-cli "$@"
+    dest: /usr/local/bin/bitcoin-cli
+    mode: 0700
