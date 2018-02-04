@@ -27,8 +27,7 @@ container.
 $ ansible-playbook -i inventories/lnd-nodes.yml deploy-bitcoind.yml
 ```
 
-You now have a Bitcoin Core node running, which exposes itself to the network via `tcp/8333`
-and `tcp/9735` ports. Node start synchronizing the blockchain. Use the following command to see
+You now have a Bitcoin Core node running, which exposes itself to the network through port `tcp/8333`. Node start synchronizing the blockchain. Use the following command to see
 it's progress.
 
 ```
@@ -37,6 +36,41 @@ foohost | SUCCESS | rc=0 >>
 2018-02-02 20:15:07 UpdateTip: new best=0000000000000007b4511e0e0fe84f191bf6451e2e31e33da5445ec298e40c6c height=263627 version=0x00000002 log2_work=72.758038 tx=25379178 date='2013-10-14 16:04:00' progress=0.086696 cache=570.9MiB(4120711txo)
 ```
 
+A wrapper script is installed at `/usr/local/bin/bitcoin-cli`, which you can use to send commands
+to the RPC interface of the node.
+
+```
+$ ansible all -b -i inventories/lnd-nodes.yml -a "bitcoin-cli getnetworkinfo"
+foohost | SUCCESS | rc=0 >>
+{
+  "version": 150100,
+  "subversion": "/Satoshi:0.15.1/",
+  "protocolversion": 70015,
+  "localservices": "000000000000000d",
+  "localrelay": true,
+  "timeoffset": -1,
+  "networkactive": true,
+  "connections": 21,
+  "networks": [ ... ]
+}
+```
+
 # Installing lightning network nodes
 
-TBA
+Once the Bitcoin blockchain is synchronized you can deploy a c-lightning Lightning Network daemon. It shares the same Docker network configuration with the Bitcoin node and is exposed
+to the network through port `tcp/9735`.
+
+```
+$ ansible-playbook -i inventories/lnd-nodes.yml deploy-lnd.yml
+```
+
+A similar wrapper script is installed at `/usr/local/bin/lightning-cli`.
+
+```
+$ ansible all -b -i inventories/lnd-nodes.yml -a "lightning-cli getinfo"
+foohost | SUCCESS | rc=0 >>
+{ "id" : "", "port" : 9735, "address" :
+	[  ], "version" : "v0.5.2-2016-11-21-1726-gfc73b1e", "blockheight" : 507557, "network" : "bitcoin" }
+````
+
+That's it.
