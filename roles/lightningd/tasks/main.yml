@@ -7,7 +7,7 @@
     name: lightningd
     image: "{{ docker_image_lightningd }}"
     entrypoint: /usr/bin/lightningd
-    command: --network=bitcoin --log-level=debug
+    command: --network=bitcoin --log-level=debug --rgb={{ lightningd_rgb }} --alias={{ lightningd_alias }}
     volumes:
     - "{{ data_dir }}/bitcoind:/root/.bitcoin"
     - "{{ data_dir }}/lightningd:/root/.lightning"

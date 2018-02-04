@@ -21,5 +21,5 @@ docker_image_lnd: "cdecker/lightningd:master"
 data_dir: "/data"
 
 # Lightning color + alias settings
-lightning_rgb: "666666"
-lightning_alias: "big-blockers-rip"
+lightningd_rgb: "666666"
+lightningd_alias: "big-blockers-rip"
