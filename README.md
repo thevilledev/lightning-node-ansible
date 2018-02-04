@@ -13,8 +13,7 @@ pull upon container startup. This is about 30 MB. Container configuration can be
 
 Deploy a fleet of Debian hosts. Make sure you have plenty of storage space available under `/data` directory on each host. This playbook expects that.
 
-Next define your hosts in `inventories/lnd-nodes.yml`. See [inventories/example.yml] for
-reference.
+Next create a file at `inventories/lnd-nodes.yml` and define your target hosts. See [inventories/example.yml](inventories/example.yml) for reference.
 
 As a final step install Ansible to your control machine. This playbook has been tested by using Ansible 2.4.3.
 
@@ -73,4 +72,4 @@ foohost | SUCCESS | rc=0 >>
 	[  ], "version" : "v0.5.2-2016-11-21-1726-gfc73b1e", "blockheight" : 507557, "network" : "bitcoin" }
 ````
 
-That's it.
+That's it. Next setup your payment channels and start buying.
