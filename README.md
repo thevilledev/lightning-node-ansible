@@ -45,14 +45,14 @@ to the RPC interface of the node.
 $ ansible all -b -i inventories/lnd-nodes.yml -a "bitcoin-cli getnetworkinfo"
 foohost | SUCCESS | rc=0 >>
 {
-  "version": 150100,
-  "subversion": "/Satoshi:0.15.1/",
+  "version": 160300,
+  "subversion": "/Satoshi:0.16.3/",
   "protocolversion": 70015,
-  "localservices": "000000000000000d",
+  "localservices": "000000000000040d",
   "localrelay": true,
   "timeoffset": -1,
   "networkactive": true,
-  "connections": 21,
+  "connections": 29,
   "networks": [ ... ]
 }
 ```
@@ -72,7 +72,7 @@ A similar wrapper script is installed at `/usr/local/bin/lightning-cli`.
 $ ansible all -b -i inventories/lnd-nodes.yml -a "lightning-cli getinfo"
 foohost | SUCCESS | rc=0 >>
 { "id" : "", "port" : 9735, "address" :
-	[  ], "version" : "v0.5.2-2016-11-21-1726-gfc73b1e", "blockheight" : 507557, "network" : "bitcoin" }
+	[  ], "version" : "v0.6.1", "blockheight" : 543607, "network" : "bitcoin" }
 ````
 
 That's it. Next setup your payment channels and start buying.
