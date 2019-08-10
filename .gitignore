@@ -1,2 +1,4 @@
 *.retry
 inventories/lnd-nodes.yml
+.vagrant
+data

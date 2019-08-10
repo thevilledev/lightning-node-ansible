@@ -1,19 +1,14 @@
 ---
 - name: install deps
   apt: 
-    name: "{{ item }}"
+    name: [
+        'curl', 'apt-transport-https', 'ca-certificates', 
+        'gnupg2', 'software-properties-common', 'python-pip',
+        'python-setuptools'
+    ]
     state: "present"
     update_cache: true
     install_recommends: False
-  with_items: 
-    - curl
-    - apt-transport-https
-    - ca-certificates
-    - curl
-    - gnupg2
-    - software-properties-common
-    - python-pip
-    - python-setuptools
 
 - name: install docker pgp key
   apt_key:
@@ -26,7 +21,7 @@
 
 - name: install docker
   apt:
-    name: docker-ce={{ docker_version }}
+    name: docker-ce={{ docker_version }}-{{ ansible_distribution_release }}
 
 - name: install pip modules for docker
   pip:

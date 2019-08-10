@@ -1,6 +1,7 @@
 ---
-- hosts: lnd-nodes
+- hosts: all
   become: yes
   become_method: sudo
   roles:
-  - role: lightningd
+  - role: docker
+  - role: bitcoind
