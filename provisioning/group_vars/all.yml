@@ -3,11 +3,11 @@ docker_version: "5:19.03.1~3-0~debian"
 
 # Docker image name for running Bitcoin Core
 # See: https://github.com/vtorhonen/lightning-node/tree/master/bitcoind
-docker_image_bitcoind: "vtorhonen/bitcoind:0.16.3-1"
+docker_image_bitcoind: "vtorhonen/bitcoind:0.18.1-1"
 
 # Docker image for running Lightning Network
 # See: https://github.com/vtorhonen/lightning-node/tree/master/lightningd
-docker_image_lightningd: "vtorhonen/lightningd:0.6.1-2"
+docker_image_lightningd: "vtorhonen/lightningd:0.7.1-1"
 
 # Data directory used by both containers as follows:
 # - bitcoind: '/data/bitcoind'
